@@ -1,0 +1,152 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #202124;
+}
+
+body, input, textarea, button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+
+header {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 2rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#search-input {
+  background-color: #525356;
+  border-radius: 0.3125rem;
+  border: none;
+  padding: 0.625rem;
+  font-weight: bold;
+  color: #ddd;
+  width: 25rem;
+}
+
+#search-input::placeholder {
+  color: #ddd;
+}
+
+#export-notes {
+  background-color: #333;
+  border: 0.125rem solid #fff;
+  border-radius: 0.25rem;
+  color: #fff;
+  padding: 0.3125rem 0.9375rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+#export-notes:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+#add-note-container {
+  display: flex;
+  width: 25rem;
+  margin: 1rem auto 0;
+  gap: 1rem;
+}
+
+#add-note-container input,
+#add-note-container button {
+  padding: 0.625rem;
+  border-radius: 0.3125rem;
+}
+
+#add-note-container input {
+  flex: 1;
+  background-color: transparent;
+  border: 0.0625rem solid #525356;
+  color: #fff;
+}
+
+#add-note-container button {
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+}
+
+#notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 15.625rem);
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.note {
+  min-height: 12.5rem;
+  padding: 1rem;
+  border: 0.0625rem solid #ccc;
+  background-color: #202124;
+  border-radius: 10px;
+  color: #fff;
+  position: relative;
+}
+
+.note textarea {
+  background-color: transparent;
+  resize: none;
+  color: #fff;
+  border: none;
+  height: 100%;
+  outline: none;
+}
+
+.note .bi-pin {
+  position: absolute;
+  left: 0.625rem;
+  bottom: 0.625rem;
+  font-size: 1.2rem;
+  background-color: #333;
+  cursor: pointer;
+  padding: 0.3125rem;
+  border-radius: 0.1875rem;
+}
+
+.note:hover > i {
+  opacity: 1;
+}
+
+.note .bi-x-lg,
+.note .bi-file-earmark-plus {
+  position: absolute;
+  right: 0.625rem;
+  top: 0.625rem;
+  padding: 0.3125rem;
+  transition: 0.3s;
+  color: #555;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.note .bi-file-earmark-plus {
+  top: 2.5rem;
+}
+
+.note .bi-x-lg:hover,
+.note .bi-file-earmark-plus:hover {
+  color: #fff;
+}
+
+.note.fixed {
+  background-color: #3c3c3f;
+}
