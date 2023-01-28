@@ -5,6 +5,8 @@ const noteInput = document.querySelector("#note-content")
 
 const addNoteBtn = document.querySelector(".add-note")
 
+const searchNotes = document.querySelector("#search-input")
+
 // Functions
 function showNotes() {
   cleanNotes()
@@ -132,7 +134,7 @@ function copyNote(id) {
 
   const noteElement = createNote(
     noteObject.id, 
-    noteObject.content, 
+    noteObject.content,
     noteObject.fixed
   )
 
@@ -141,6 +143,29 @@ function copyNote(id) {
   notes.push(noteObject)
 
   saveNotes(notes)
+}
+
+function searchNote(query) {
+
+  const notes = getNotes()
+
+  const foundNotes = notes.filter((note) => note.content.toLowerCase().indexOf(query.toLowerCase()) > -1)
+
+  cleanNotes()
+
+  for (let i in foundNotes) {
+
+    const object = foundNotes[i]
+
+    const noteElement = createNote(
+      object.id,
+      object.content,
+      object.fixed
+    )
+
+    notesContainer.appendChild(noteElement)
+
+  }
 }
 
 // Local Storage
@@ -158,6 +183,8 @@ function saveNotes(notes) {
 
 // Events
 addNoteBtn.addEventListener("click", () => addNote())
+
+searchNotes.addEventListener("keyup", () => searchNote(searchNotes.value))
 
 // Start
 showNotes()
